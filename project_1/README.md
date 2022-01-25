@@ -36,7 +36,7 @@
 
 ### Executing program
 
-## How to test your application functionalities?
+#### How to test your application functionalities?
 
 To test your application I recommend you to use POSTMAN, this tool will help you to make the requests to the API.
 Always is useful to debug your code see what is happening in your algorithm, so I will let you this video for you to check on how to do it >https://www.youtube.com/watch?v=6cOsxaNC06c . Try always to debug your code to understand what you are doing.
