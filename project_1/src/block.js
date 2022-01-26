@@ -29,12 +29,17 @@ class Block {
         return new Promise((resolve, reject) => {
             // Save in auxiliary variable the current block hash
             const auxHash = self.hash;
+            console.log(auxHash);
+            self.hash = null;
                                             
             // Recalculate the hash of the Block'
             const calculatedHash = SHA256(JSON.stringify(self)).toString();
+            console.log(calculatedHash);
+
 
             // Comparing if the hashes changed
             if( auxHash != calculatedHash){
+                self.hash =auxHash;
                 
             
             // Returning the Block is not valid
@@ -45,7 +50,9 @@ class Block {
             // Returning the Block is valid
    
             } else {
+                self.hash =auxHash;
                 resolve(true);
+
             }
             
 
@@ -66,13 +73,7 @@ class Block {
         // Resolve with the data if the object isn't the Genesis block
 
                 resolve(JSON.parse(decodedData));
-            } else {
-
-                reject(new Error('Genesis Block, data cannot be retrived'));
-            }
-
-
-
+            } 
 
         });
 

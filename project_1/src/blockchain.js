@@ -61,10 +61,12 @@ class Blockchain {
      * Note: the symbol `_` in the method name indicates in the javascript convention 
      * that this method is a private method. 
      */
-    _addBlock(block) {
+    async _addBlock(block) {
         let self = this;
+    
+        
         return new Promise(async (resolve, reject) => {
-            block.height = self.chain.length;
+            block.height = self.height + 1;
             block.time = new Date().getTime().toString().slice(0,-3);
 
             if (self.chain.length > 0) {
@@ -72,11 +74,19 @@ class Blockchain {
                 block.previousBlockHash = self.chain[(block.height)-1].hash
             }
             block.hash = SHA256(JSON.stringify(block)).toString();
+      
             self.chain.push(block);
             self.height+=1;
-            resolve(block);
+            let errorLog = await self.validateChain();
+            console.log(errorLog);
+            if (errorLog.length == 0){
+                resolve(block);
+            } else {
+                self.chain.pop();
+                self.height-=1
+                reject(new Error('New block cannot be added to the chain'));
 
-            reject(new Error('New block cannot be added to the chain'));
+            }
 
 
            
@@ -216,14 +226,15 @@ class Blockchain {
         return new Promise(async (resolve, reject) => {
 
 
-            self.chain.forEach(p => {
+            self.chain.forEach(async (block,index,array) => {
+                let validate = await block.validate();
+                console.log(validate);
+        
+                if(validate == false){
+                    errorLog.push(`{error: ${index} Block validation failed}`);
+                } else if (index != 0 && (block.previousBlockHash != array[index-1].hash)){
 
-                let validate = p.validate();
-                if(!validate){
-                    errorLog.push(p);
-                }else if (p.previousBlockHash != (p-1).hash){
-
-                    errorLog.push(p);
+                    errorLog.push(`{error: ${index} Block's Hash of previous block do not match}`);
 
                 }
             });
