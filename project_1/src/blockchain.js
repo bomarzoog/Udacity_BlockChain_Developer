@@ -39,6 +39,7 @@ class Blockchain {
             await this._addBlock(block);
         }
     }
+ 
 
     /**
      * Utility method that return a Promise that will resolve with the height of the chain
@@ -62,6 +63,7 @@ class Blockchain {
      * that this method is a private method. 
      */
     async _addBlock(block) {
+     
         let self = this;
     
         
@@ -198,9 +200,9 @@ class Blockchain {
         let stars = [];
         return new Promise((resolve, reject) => {
 
-            self.chain.forEach(p => {
+            self.chain.forEach(async (p) => {
                 
-                let decodedBlock = p.getBData();
+                let decodedBlock = await p.getBData();
                 if ( decodedBlock){
                     if (decodedBlock.address === address){
                         stars.push(decodedBlock);
@@ -208,7 +210,7 @@ class Blockchain {
                 }
             
             });
-
+            
             resolve(stars);
 
         });
