@@ -2,7 +2,7 @@
 
 ## Submission Information
 ** Please note, I used ropsten testing network instead of rinkeby, I tried to get rinkeby test Ethereums with no luck, 
-it seems a tecnical issue on faucet site.
+it seems a technical issue on faucet site.
 
 1) Your ERC-721 Token Name: `STARO Token`
 2) Your ERC-721 Token Symbol: `STRO`
