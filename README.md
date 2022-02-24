@@ -2,5 +2,5 @@
 
 ## Nanodegree Projects
 
-- [x] [Create Your Own Private Blockchain][Project 1](/project_1/)
-- [x] [Build NotaryStar Dapp on Ethereum][Project 2](/project_2/)
+- [x] [Project 1:](/project_1/) Create Your Own Private Blockchain
+- [x] [Project 2:](/project_2/) Build NotaryStar Dapp on Ethereum
