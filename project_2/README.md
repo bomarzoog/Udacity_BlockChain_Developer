@@ -10,8 +10,11 @@ it seems a tecnical issue on faucet site.
 4) The deployed smart contract address on ropsten test network: `0x311DB490112341b3e75c7B0a8e9f46769CbA06dA`
 
 
-## Testing Star Notary dApp on Truffle develop
+## Testing Star Notary dApp 
 
+### Testing on Truffle
+```
+truffle(develop)> test
 Compiling your contracts...
 ===========================
 > Compiling ./contracts/Migrations.sol
@@ -50,10 +53,11 @@ Compiling your contracts...
   ✓ lookUptokenIdToStarInfo test (48ms)
 
   9 passing (811ms)
-
+```
 
   ###  Deploying to Ropsten
 
+```
   % truffle migrate --reset --network ropsten
 
 Compiling your contracts...
@@ -133,3 +137,5 @@ Summary
 =======
 > Total deployments:   2
 > Final cost:          0.014743366502133551 ETH
+
+```
