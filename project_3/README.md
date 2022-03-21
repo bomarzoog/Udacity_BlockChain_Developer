@@ -12,7 +12,7 @@ This repository containts an Ethereum DApp that demonstrates a Supply Chain flow
 
 
 ## Testing The dApp
-
+```
 %  truffle test                                           
 Using network 'development'.
 
@@ -38,11 +38,11 @@ Consumer: accounts[4]  0xd37b7b8c62be2fdde8daa9816483aebdbd356088
 
 
   10 passing (977ms)
-
+```
 ## Deploy dApp on Ropsten
 
 SupplyChain contact address:   0xf0ad205c70db97ab9e5fd7a241bb8332b6355fa1
-
+```
 project-6 %  truffle migrate --network ropsten --reset --compile-all
 Compiling ./contracts/Migrations.sol...
 Compiling ./contracts/coffeeaccesscontrol/ConsumerRole.sol...
@@ -72,7 +72,7 @@ Running migration: 2_deploy_contracts.js
   Deploying SupplyChain...
   ... 0xf9fc6f49ff7eaebe43f22ec0336ab60d3e858c3f6bf1b350aaf8bc67cf22cd7d
   SupplyChain: 0xf0ad205c70db97ab9e5fd7a241bb8332b6355fa1
-
+```
 
 ### UML Diagrams
 I have created required UML diagrams
@@ -87,7 +87,7 @@ I have created required UML diagrams
 ![State Diagram](images/uml/State_Diagram.jpeg)
 
 #### Classes (Data Model)
-![Classes Diagram](images/uml/Class_Diagram.jpeg)
+![Classes Diagram](images/uml/Classes_Diagram.jpeg)
 
 ### Libraries Write-up
 Below are the dependencies in my `packages.json` file:
