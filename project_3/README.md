@@ -99,3 +99,14 @@ Below are the dependencies in my `packages.json` file:
   }
 }
 ```
+### IPFS Write-up
+I did not use IPFS.
+
+### General Write-up
+I built the dApp in five parts:
+
+- **Part 1 - Plan the project:** I cretaed required UML diagrams.
+- **Part 2 - Write smart contracts:** I completed unfinished smart contract functions based on provided tempalte, also added required test functions.
+- **Part 3 - Test smart contract code coverage:** I used Truffle test to make sure that all test functions are passing.
+- **Part 4 - Deploy smart contracts on Rinkeby:** I used Truffle to deploy SupplyChain contract on Ropsten Ethereum test network.
+- **Part 5 - Build the frontend:** I confirmed that fronted html page is working as expected and disply transactions for each supply chain stage.
