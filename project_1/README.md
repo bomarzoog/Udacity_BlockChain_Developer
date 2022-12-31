@@ -5,7 +5,7 @@
 
 This is a simple application that use private blockchain to register/record stars ownership. Blockchain codes are deployed in `src/block.js` and `src/blockchain.js`, while a set of API endpoints are created using `express.js`, API REST calls are used to add new stars on blockchain, validate added blocks, and query stars info. 
 
-The purpose of this project is to get familiarity with following concepts:
+* The purpose of this project is to get familiarity with following concepts:
     - Block
     - Blockchain
     - Wallet
@@ -21,6 +21,7 @@ The purpose of this project is to get familiarity with following concepts:
 ### Dependencies
 
 * Some of the libraries or npm modules you will use are:
+
     - "bitcoinjs-lib": "^4.0.3",
     - "bitcoinjs-message": "^2.0.0",
     - "body-parser": "^1.18.3",
@@ -33,7 +34,9 @@ The purpose of this project is to get familiarity with following concepts:
 
 ### Installing
 
-* Make sure that Node.js is installed on your system, for more info on how to install Node.js, please check: `(https://nodejs.dev/en/learn/how-to-install-nodejs/)`
+* Make sure that Node.js is installed on your system, for more info on how to install Node.js, please check: 
+
+(https://nodejs.dev/en/learn/how-to-install-nodejs/)
 
 * Remember if you think you need install any other library you will use :
     
@@ -56,7 +59,6 @@ The purpose of this project is to get familiarity with following concepts:
 
 To test your application you need to install POSTMAN or Curl to send API requests, also you need Bitcoin-Core or Electrum wallet to sign messages.
 
-Always is useful to debug your code see what is happening in your algorithm, so I will let you this video for you to check on how to do it >https://www.youtube.com/watch?v=6cOsxaNC06c . Try always to debug your code to understand what you are doing.
 
 1. Run your application using the command `node app.js`
 
