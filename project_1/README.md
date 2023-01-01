@@ -154,12 +154,30 @@ Response Example:
 {
     "timeStamp":"1672541447",
     "previousHash":"98a5744a796df09a6f763ac92bc3e89357d9d294fbd5eb8ee0fe8fece4fdc1f4","body":"7b22646563223a2236382035322035362e39222c227261223a223136682032396d20312e3073222c2273746f7279223a2254657374696e67207375626d6974537461722034227d","hash":"82c74e19659cfbe0372757185c1b828c8a665380548aa508587f3b2d6d9d59e3",
-    "height":1}
+    "height":1
+    }
 
 ```
 
 
 #### Step 4: StepRetrieve Stars owned by me
+
+- This endpoint will return an array of Stars on the chain that belong to the owner with the wallet address passed in as parameter.
+- This method will always return an array because a person can register more than one Star.
+
+To retrieve all stars owned by specific wallet address use following curl command:
+
+```curl
+ curl -X GET 'http://localhost:8000/block/address/mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE'
+
+```json
+Response Example:
+
+[{
+    "timeStamp":"1672545832","previousHash":"456ce0d8ae9a4c28ffa207a5113579e605c677b8195697e78442e1631595df9c","body":"7b2273746172223a7b22646563223a2236382035322035362e39222c227261223a223136682032396d20312e3073222c2273746f7279223a2254657374696e67207375626d6974537461722034227d2c2261646472657373223a226d6a583436735a4a6352724668524a655062556f6b6b396f6f524c6e56394d6b4545227d","hash":"bc2815f2940db9c035e5c2ad4f458f632ac4dbfbae785b1575f1fa5f1bbcb767","height":1
+}]
+
+```
 
 
 
