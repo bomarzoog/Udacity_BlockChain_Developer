@@ -36,11 +36,11 @@ This is a simple application that use private blockchain to register/record star
 
 * Make sure that Node.js is installed on your system, for more info on how to install Node.js, please check: 
 
-(https://nodejs.dev/en/learn/how-to-install-nodejs/)
+https://nodejs.dev/en/learn/how-to-install-nodejs/
 
 * Remember if you think you need install any other library you will use :
     
-    npm install <npm_module_name>
+    `npm install <npm_module_name>`
 
 ### Executing program
 
@@ -48,19 +48,44 @@ This is a simple application that use private blockchain to register/record star
 
 1. To run application use the command: 
     
-    `node app.js`
+    ```node app.js```
 
 
 * You should see in your terminal a message indicating that the server is listening in port 8000:
     
-    `> Server Listening for port: 8000`
+    ```> Server Listening for port: 8000```
 
 #### How to test your application functionalities?
 
-To test your application you need to install POSTMAN or Curl to send API requests, also you need Bitcoin-Core or Electrum wallet to sign messages.
+* To test your application you need to install POSTMAN or Curl to send API requests, also you need Bitcoin-Core or Electrum wallet to sign messages.
 
 
-1. Run your application using the command `node app.js`
+##### Test1: `RequestOwnership API Call`
+- This endpoint will allow you to request a message that you will use to sign it with your Bitcoin Wallet (Electrum or Bitcoin Core)
+- This is the first step before submit your Block
+- The endpoint will return a message to be signed in following format:
+
+```<WALLET_ADDRESS>:${new Date().getTime().toString().slice(0,-3)}:starRegistry```
+
+* To get ownership message run following curl command:
+
+```
+curl -X  POST 'http://localhost:8000/requestValidation' \
+--header 'Content-Type: application/json' \
+-d '{
+    "address" : "mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE"
+}'
+
+```
+
+```
+Response Example:
+
+"mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE:1672538381:starRegistry"
+
+```
+
+
 
 
 2. To make sure your application is working fine and it creates the Genesis Block you can use POSTMAN to request the Genesis block:
