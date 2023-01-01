@@ -57,7 +57,7 @@ This is a simple application that use private blockchain to register/record star
 
 * To test your application you need to install POSTMAN or Curl to send API requests, also you need Bitcoin-Core or Electrum wallet to sign messages.
 
-#### Test 1: **getBlockByHeight API Call**
+#### Step 1: **getBlockByHeight API Call**
 To make sure that application is working fine and it creates the Genesis Block you can use Curl to request the Genesis block **Block 0**:
 
 Run following Curl command will will invoke getBlockByHeight method:
@@ -82,7 +82,7 @@ Response Example:
 
 
 
-#### Test 2: **requestOwnership API Call**
+#### Step 2: **requestOwnership API Call**
 - This endpoint will allow you to request a message that you will use to sign it with your Bitcoin Wallet (Electrum or Bitcoin Core)
 - This is the first step before submit your Block
 - The endpoint will return a message to be signed in following format:
@@ -99,31 +99,67 @@ curl -X  POST 'http://localhost:8000/requestValidation' -H 'Content-Type: applic
 
 ```
 
-```
+```json
 Response Example:
 
 "mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE:1672538381:starRegistry"
 
 ```
 
-#### Test 3: **Sign message ownership using Bitcoin-core Wallet**
+#### Step 3: **Sign message ownership using Bitcoin-core Wallet**
 
-Use Bitcoin-core or Electrum wallet to sign ownership message received in Test2
+Use Bitcoin-core or Electrum wallet to sign ownership message received in Step 2
 
 <img src="../assets/sign.png" width="1000"/>
 
 
-#### Test 4: `Submit your star`
+#### Step 4: `Submit your star`
 
+After you sign ownership message, you can use this endpoint to register new star data, once the message is submitted it can't be changed and a new star will be placed on a new Block, please make sure to submit you star within 5 minutes after requesting ownership message in Step 2.
 
+The Start information will be formed in this format:
 
-
-
-
-
-5. Submit your Star
-     ![Request: http://localhost:8000/submitstar](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca365d3_signing-message/signing-message.png)
-6. Retrieve Stars owned by me
-    ![Request: http://localhost:8000/blocks/<WALLET_ADDRESS>](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca362b9_retrieve-stars/retrieve-stars.png)
+```json
+     "star": {
+         "dec": "68° 52' 56.9",
+         "ra": "16h 29m 1.0s",
+         "story": "Testing the story 4",
+         "address": "mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE"
+     }
 ```
+
+
+To submit new start use following curl command"
+
+```json
+
+curl -X POST 'http://localhost:8000/submitstar' \
+-H 'Content-Type: application/json' \
+-d '{
+    "address" : "mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE",
+    "signature" : "H9eMyaS6IcegG4rYhFLS20k2E/gCLNv3xMbfS5QEvDfxI8CK35VL9LPJv1pSeNNRNWjPsz3MjPLG9GsgCoGuFuw=",
+    "message" : "mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE:1672538381:starRegistry",
+    "star" : {
+        "dec" : "68 52 56.9",
+        "ra" : "16h 29m 1.0s",
+        "story" : "Testing submitStar 4"
+    }
+}'
+
+```
+
+```json
+Response Example:
+
+{
+    "timeStamp":"1672541447",
+    "previousHash":"98a5744a796df09a6f763ac92bc3e89357d9d294fbd5eb8ee0fe8fece4fdc1f4","body":"7b22646563223a2236382035322035362e39222c227261223a223136682032396d20312e3073222c2273746f7279223a2254657374696e67207375626d6974537461722034227d","hash":"82c74e19659cfbe0372757185c1b828c8a665380548aa508587f3b2d6d9d59e3",
+    "height":1}
+
+```
+
+
+#### Step 4: StepRetrieve Stars owned by me
+
+
 
