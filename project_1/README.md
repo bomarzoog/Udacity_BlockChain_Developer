@@ -36,7 +36,7 @@ This is a simple application that use private blockchain to register/record star
 
 * Make sure that Node.js is installed on your system, for more info on how to install Node.js, please check: 
 
-https://nodejs.dev/en/learn/how-to-install-nodejs/
+\t\t https://nodejs.dev/en/learn/how-to-install-nodejs/
 
 * Remember if you think you need install any other library you will use :
     
