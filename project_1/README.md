@@ -44,8 +44,6 @@ This is a simple application that use private blockchain to register/record star
 
 ### Executing program
 
-#### Starting Program
-
 1. To run application use the command: 
     
     ```node app.js```
@@ -55,11 +53,11 @@ This is a simple application that use private blockchain to register/record star
     
     ```> Server Listening for port: 8000```
 
-#### How to test your application functionalities?
+### How to test your application functionalities?
 
 * To test your application you need to install POSTMAN or Curl to send API requests, also you need Bitcoin-Core or Electrum wallet to sign messages.
 
-##### Test1: `getBlockByHeight API Call`
+#### Test 1: **getBlockByHeight API Call**
 To make sure that application is working fine and it creates the Genesis Block you can use Curl to request the Genesis block **Block 0**:
 
 Run following Curl command will will invoke getBlockByHeight method:
@@ -84,7 +82,7 @@ Response Example:
 
 
 
-##### Test2: `requestOwnership API Call`
+#### Test 2: **requestOwnership API Call**
 - This endpoint will allow you to request a message that you will use to sign it with your Bitcoin Wallet (Electrum or Bitcoin Core)
 - This is the first step before submit your Block
 - The endpoint will return a message to be signed in following format:
@@ -108,20 +106,21 @@ Response Example:
 
 ```
 
-##### Test3: `Sign message ownership using Bitcoin-core Wallet`
+#### Test 3: **Sign message ownership using Bitcoin-core Wallet**
 
 Use Bitcoin-core or Electrum wallet to sign ownership message received in Test2
 
-<img src="../assets/sign.png" width="400"/>
+<img src="../assets/sign.png" width="1000"/>
+
+
+#### Test 4: `Submit your star`
 
 
 
-2. To make sure your application is working fine and it creates the Genesis Block you can use POSTMAN to request the Genesis block:
-    ![Request: http://localhost:8000/block/0 ](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca360cc_request-genesis/request-genesis.png)
-3. Make your first request of ownership sending your wallet address:
-    ![Request: http://localhost:8000/requestValidation ](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca36182_request-ownership/request-ownership.png)
-4. Sign the message with your Wallet:
-    ![Use the Wallet to sign a message](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca36182_request-ownership/request-ownership.png)
+
+
+
+
 5. Submit your Star
      ![Request: http://localhost:8000/submitstar](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca365d3_signing-message/signing-message.png)
 6. Retrieve Stars owned by me
