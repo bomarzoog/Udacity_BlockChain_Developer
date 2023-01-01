@@ -170,6 +170,8 @@ To retrieve all stars owned by specific wallet address use following curl comman
 ```curl
  curl -X GET 'http://localhost:8000/block/address/mjX46sZJcRrFhRJePbUokk9ooRLnV9MkEE'
 
+ ```
+
 ```json
 Response Example:
 
